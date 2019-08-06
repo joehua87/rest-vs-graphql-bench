@@ -16,6 +16,12 @@ Start an instance of mongodb
 docker run -d --name mongo -p 27017:27017 mongo:4
 ```
 
+Install autocannon for bench:
+
+```sh
+npm install -g autocannon
+```
+
 ### Setup test data
 
 ```sh
@@ -24,7 +30,8 @@ docker run -d --name mongo -p 27017:27017 mongo:4
 
 ## Bench
 
-Install autocannon: `npm install -g autocannon`
+Build production: `yarn build`
+Start app: `yarn start`
 
 ### REST
 
@@ -50,7 +57,7 @@ autocannon -t 10 -c 400 -d 15s -m POST -H content-type='application/json' -b '{ 
 
 ### Result
 
-> REST is 124% faster than GraphQL
+> REST is 124% faster than GraphQL (594 req/s vs 478/s)
 
 ## TODO
 
