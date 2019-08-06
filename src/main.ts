@@ -1,12 +1,11 @@
 import express from 'express'
 
-import { initDb } from './db'
+import { models } from './db'
+import { apolloServer } from './graphql'
 
 declare const module: any
 
 async function bootstrap() {
-  const { models } = await initDb()
-
   const app = express()
   app.set('view engine', 'pug')
   app.get('/', (req, res) => res.send('Hello World!'))
@@ -15,6 +14,7 @@ async function bootstrap() {
     res.json(posts)
   })
 
+  apolloServer.applyMiddleware({ app })
   const server = await app.listen(3000, () => {
     console.log(`Listen to 3000`)
   })

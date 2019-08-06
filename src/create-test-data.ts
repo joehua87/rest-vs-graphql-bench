@@ -1,7 +1,7 @@
 import faker from 'faker'
 import R from 'ramda'
 
-import { initDb } from './db'
+import { connection, models } from './db'
 
 const posts = R.times(() => 0, 100).map(() => {
   const title = faker.lorem.sentence()
@@ -17,7 +17,6 @@ const posts = R.times(() => 0, 100).map(() => {
 })
 
 async function run() {
-  const { connection, models } = await initDb()
   await models.Post.insertMany(posts)
   connection.close()
 }
