@@ -20,7 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "apollo-server-express": "^2.8.1",
+    "apollo-server-express": "^2.14.2",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "graphql": "^14.4.2",
